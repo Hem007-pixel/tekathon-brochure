@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekathon 4.0 | About</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Roboto (new professional font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for Light Theme */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #f8fafc; /* Light background: Tailwind slate-50 */
+            min-height: 100vh;
+            color: #1f2937; /* Dark text: Tailwind gray-800 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+        }
+
+        /* Accent colors for Light Theme (vibrant blue) */
+        .accent-text {
+            color: #2563eb; /* Tailwind blue-600 */
+            transition: color 0.3s ease;
+        }
+        .accent-border {
+            border-color: #3b82f6; /* Tailwind blue-500 */
+            transition: border-color 0.3s ease;
+        }
+        .bg-card-light { /* For main content container in light mode */
+            background-color: #ffffff; /* White */
+            transition: background-color 0.3s ease;
+        }
+        .border-card-light {
+            border-color: #e2e8f0; /* Tailwind slate-200 for inner borders */
+            transition: border-color 0.3s ease;
+        }
+        .text-light-p { /* Paragraph text */
+            color: #374151; /* Tailwind gray-700 */
+            transition: color 0.3s ease;
+        }
+        .text-light-strong { /* Strong text in paragraphs */
+            color: #1f2937; /* Tailwind gray-800 */
+            transition: color 0.3s ease;
+        }
+        .text-light-fade { /* Footer text */
+            color: #6b7280; /* Tailwind gray-500 */
+            transition: color 0.3s ease;
+        }
+        .nav-link-light-hover:hover {
+            color: #2563eb; /* Tailwind blue-600 */
+            text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6;
+            transform: scale(1.05);
+        }
+        .image-border-light {
+            border-color: #cbd5e1; /* Tailwind slate-300 */
+            transition: border-color 0.3s ease;
+        }
+
+        /* Dark Theme Styles (Restored to match screenshot's blue) */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1d 50%, #1a1a2e 100%); /* Original dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        body.dark-mode .accent-text {
+            color: #4DD0E1; /* NEW: Light blue from screenshot */
+        }
+        body.dark-mode .accent-border {
+            border-color: #4DD0E1; /* NEW: Light blue from screenshot */
+        }
+        /* Main content container background in dark mode */
+        body.dark-mode .bg-card-light {
+            background-color: #1f2937; /* Tailwind gray-900 - matches screenshot's main container */
+        }
+        body.dark-mode .border-card-light {
+            border-color: #374151; /* Tailwind gray-700 */
+        }
+        body.dark-mode .text-light-p {
+            color: #d1d5db; /* Tailwind gray-300 */
+        }
+        body.dark-mode .text-light-strong {
+            color: #e5e7eb; /* Tailwind gray-200 */
+        }
+        body.dark-mode .text-light-fade {
+            color: #9ca3af; /* Tailwind gray-400 */
+        }
+        body.dark-mode .nav-link-light-hover:hover {
+            color: #4DD0E1; /* NEW: Light blue from screenshot */
+            text-shadow: 0 0 5px #4DD0E1, 0 0 10px #4DD0E1; /* NEW: Light blue glow */
+            transform: scale(1.05);
+        }
+        body.dark-mode .image-border-light {
+            border-color: #4b5563; /* Tailwind gray-600 */
+        }
+        /* Card background for dark mode sections (Matching screenshot's card background) */
+        body.dark-mode .bg-section-card-light {
+            background-color: #1a1a2e; /* Very dark grey/black, matching screenshot */
+            color: #e0e0e0; /* Light text for dark mode cards */
+            border-color: #374151; /* Dark border for dark mode cards */
+            box-shadow: 0 0 10px rgba(77, 208, 225, 0.2); /* NEW: Subtle blue shadow */
+        }
+        body.dark-mode .bg-section-card-light .text-light-p {
+            color: #d1d5db; /* Ensure light text on dark card */
+        }
+        body.dark-mode .bg-section-card-light .text-light-strong {
+            color: #e5e7eb; /* Ensure light strong text on dark card */
+        }
+        body.dark-mode .bg-section-card-light .text-light-fade {
+            color: #9ca3af; /* Ensure light fade text on dark card */
+        }
+
+
+        /* Custom scrollbar for aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* Light track */
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: #2a2a3e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6; /* Blue thumb (light mode) */
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: #4DD0E1; /* NEW: Light blue thumb */
+            box-shadow: 0 0 5px rgba(77, 208, 225, 0.5); /* NEW: Light blue shadow */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb; /* Darker blue on hover for dark mode */
+        }
+
+        /* Animations (retained) */
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-section-in {
+            animation: fadeInSlideUp 0.7s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes headerFadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-header-title {
+            animation: headerFadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes taglineFadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-header-tagline {
+            animation: taglineFadeIn 0.8s ease-out forwards 0.2s;
+            opacity: 0;
+        }
+        @keyframes imageFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-image-in {
+            animation: imageFadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Futuristic blur elements opacity adjustment for both themes */
+        .absolute.w-24.h-24,
+        .absolute.w-32.h-32,
+        .absolute.w-16.h-16,
+        .absolute.w-20.h-20 {
+            transition: opacity 0.3s ease;
+        }
+        .light-mode-blur {
+            opacity: 0.1; /* Reduced opacity for light background */
+        }
+        .dark-mode-blur {
+            opacity: 0.2; /* Higher opacity for dark background */
+        }
+        .dark-mode-blur-alt {
+             opacity: 0.15; /* slightly less opacity for other dark blur */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <!-- Futuristic elements for visual flair -->
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div id="blur1" class="absolute w-24 h-24 bg-gradient-to-br from-blue-500 to-green-400 rounded-full blur-xl -top-8 -left-8 light-mode-blur"></div>
+        <div id="blur2" class="absolute w-32 h-32 bg-gradient-to-tl from-purple-500 to-pink-400 rounded-full blur-xl -bottom-16 -right-16 light-mode-blur"></div>
+        <div id="blur3" class="absolute w-16 h-16 bg-gradient-to-tr from-yellow-400 to-red-500 rounded-full blur-xl top-1/4 right-1/4 animate-pulse light-mode-blur"></div>
+        <div id="blur4" class="absolute w-20 h-20 bg-gradient-to-bl from-teal-400 to-cyan-500 rounded-full blur-xl bottom-1/3 left-1/4 animate-pulse delay-100 light-mode-blur"></div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="relative z-10 bg-card-light rounded-lg shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12
+                max-w-4xl w-full flex flex-col gap-8 border-2 accent-border mb-8">
+
+        <!-- Dark Mode Toggle Button -->
+        <button id="themeToggle"
+                class="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700
+                       text-gray-700 dark:text-gray-200 shadow-md hover:scale-105 transition-transform duration-200">
+            <i class="fas fa-moon dark-icon"></i>
+            <i class="fas fa-sun light-icon hidden"></i>
+        </button>
+
+        <!-- Header -->
+        <header class="text-center pb-6 border-b border-card-light">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 accent-text animate-header-title italic">Tekathon 4.0</h1>
+            <p class="text-xl sm:text-2xl font-light text-light-p italic mb-4 animate-header-tagline">AI Holds Innovation</p>
+            <nav class="flex justify-center space-x-4 sm:space-x-8">
+                <a href="index.html" class="text-light-p hover:text-blue-600 font-medium transition-colors duration-200 nav-link-light-hover">Home</a>
+                <a href="sponsor.html" class="text-light-p hover:text-blue-600 font-medium transition-colors duration-200 nav-link-light-hover">Why Sponsor</a>
+                <a href="contact.html" class="text-light-p hover:text-blue-600 font-medium transition-colors duration-200 nav-link-light-hover">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- About Tekathon 4.0 Text Card (spanning 2 columns on large screens) -->
+            <div class="flex flex-col bg-card-light p-6 rounded-lg shadow-md border border-card-light lg:col-span-2 animate-section-in" style="animation-delay: 0.3s;">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 accent-text">About Tekathon 4.0</h2>
+                <p class="text-base sm:text-lg leading-relaxed text-light-p">
+                    Tekathon 4.0 is Chandigarh University's premier tech innovation hackathon, an electrifying event where
+                    brilliant minds converge to push the boundaries of technology. It brings together diverse talents in AI,
+                    software development, and hardware engineering, challenging participants to collaborate and build
+                    impactful, real-world solutions that address contemporary global issues.
+                </p>
+            </div>
+
+            <!-- About Tekathon 4.0 Image Card (occupying 1 column) -->
+            <div class="rounded-lg overflow-hidden shadow-md border image-border-light bg-card-light p-2 animate-section-in" style="animation-delay: 0.4s;">
+                <img src="DSC_0009.JPG" alt="Hackathon" class="w-full h-48 object-cover rounded-md animate-image-in">
+            </div>
+
+            <!-- About Chandigarh University Card (Compact) -->
+            <div class="flex flex-col bg-card-light p-6 rounded-lg shadow-md border border-card-light animate-section-in" style="animation-delay: 0.5s;">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 accent-text">About CU</h2>
+                <p class="text-base sm:text-lg leading-relaxed text-light-p">
+                    Chandigarh University is a leading hub of innovation and research, fostering creativity and entrepreneurship among thousands of students.
+                </p>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="flex flex-col bg-card-light p-6 rounded-lg shadow-md border border-card-light animate-section-in" style="animation-delay: 0.6s;">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 accent-text">Vision</h2>
+                <p class="text-base sm:text-lg leading-relaxed text-light-p">
+                    To cultivate an innovative ecosystem where students are empowered to develop impactful solutions to
+                    real-world challenges, harnessing the power of cutting-edge technology.
+                </p>
+            </div>
+
+            <!-- Mission Card -->
+            <div class="flex flex-col bg-card-light p-6 rounded-lg shadow-md border border-card-light animate-section-in" style="animation-delay: 0.7s;">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 accent-text">Mission</h2>
+                <p class="text-base sm:text-lg leading-relaxed text-light-p">
+                    To seamlessly bridge the gap between industry demands and academic prowess through engaging hackathons,
+                    expert mentorship, and collaborative initiatives, preparing students for future success.
+                </p>
+            </div>
+            
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center pt-6 border-b border-card-light text-light-fade text-sm animate-section-in" style="animation-delay: 1.2s;">
+            <p>© 2025 Tekathon 4.0 | Chandigarh University</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const darkIcon = document.querySelector('.dark-icon');
+            const lightIcon = document.querySelector('.light-icon');
+            const blurElements = [
+                document.getElementById('blur1'),
+                document.getElementById('blur2'),
+                document.getElementById('blur3'),
+                document.getElementById('blur4')
+            ];
+
+            // Function to set theme
+            const setTheme = (isDarkMode) => {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                    // Adjust blur opacities for dark mode
+                    blurElements.forEach((el, index) => {
+                        if (index === 2 || index === 3) { // animated blurs
+                            el.classList.remove('light-mode-blur');
+                            el.classList.add('dark-mode-blur-alt');
+                        } else {
+                             el.classList.remove('light-mode-blur');
+                             el.classList.add('dark-mode-blur');
+                        }
+                    });
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                    // Adjust blur opacities for light mode
+                    blurElements.forEach((el, index) => {
+                         if (index === 2 || index === 3) { // animated blurs
+                             el.classList.remove('dark-mode-blur-alt');
+                             el.classList.add('light-mode-blur');
+                         } else {
+                             el.classList.remove('dark-mode-blur');
+                             el.classList.add('light-mode-blur');
+                         }
+                    });
+                    localStorage.setItem('theme', 'light');
+                }
+            };
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                setTheme(true);
+            } else {
+                setTheme(false); // Default to light mode
+            }
+
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+        });
+    </script>
+</body>
+</html>

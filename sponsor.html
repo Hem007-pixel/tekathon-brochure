@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekathon 4.0 | Why Sponsor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Roboto (professional font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for Light Theme */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #f8fafc; /* Light background: Tailwind slate-50 */
+            min-height: 100vh;
+            color: #1f2937; /* Dark text: Tailwind gray-800 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+        }
+
+        /* Accent colors for Light Theme (vibrant blue) */
+        .accent-text {
+            color: #2563eb; /* Tailwind blue-600 */
+            transition: color 0.3s ease;
+        }
+        .accent-border {
+            border-color: #2563eb; /* Tailwind blue-600 */
+            transition: border-color 0.3s ease;
+        }
+        .bg-card-light { /* For main content container in light mode - NOW WHITE */
+            background-color: #ffffff; /* White */
+            transition: background-color 0.3s ease;
+        }
+        .border-card-light {
+            border-color: #e2e8f0; /* Tailwind slate-200 for inner borders */
+            transition: border-color 0.3s ease;
+        }
+        .text-light-p { /* Paragraph text */
+            color: #374151; /* Tailwind gray-700 */
+            transition: color 0.3s ease;
+        }
+        .text-light-strong { /* Strong text in paragraphs */
+            color: #1f2937; /* Tailwind gray-800 */
+            transition: color 0.3s ease;
+        }
+        .text-light-fade { /* Footer text */
+            color: #6b7280; /* Tailwind gray-500 */
+            transition: color 0.3s ease;
+        }
+        .nav-link-light-hover:hover {
+            color: #2563eb; /* Tailwind blue-600 */
+            text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6; /* Slightly lighter blue for glow */
+            transform: scale(1.05);
+        }
+        .image-border-light {
+            border-color: #cbd5e1; /* Tailwind slate-300 */
+            transition: border-color 0.3s ease;
+        }
+
+        /* Chart bar base style */
+        .chart-bar-base {
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 4px;
+            position: relative;
+            overflow: hidden;
+            background-color: #e2e8f0; /* Light base for light theme */
+            transition: background-color 0.3s ease;
+        }
+        body.dark-mode .chart-bar-base { /* Override for dark mode */
+            background-color: #374151; /* Dark base for dark theme */
+        }
+        .chart-bar-fill {
+            height: 100%;
+            background-color: #2563eb; /* Blue fill for light theme */
+            border-radius: 4px;
+            transition: width 0.5s ease-out, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode .chart-bar-fill { /* Override for dark mode */
+            background-color: #22d3ee; /* Cyan-400 fill for dark theme */
+        }
+        
+        /* Glowing numbers effect - Light theme */
+        .glowing-number-light {
+            text-shadow: 0 0 4px rgba(37, 99, 235, 0.5), 0 0 8px rgba(37, 99, 235, 0.3);
+            transition: text-shadow 0.3s ease;
+        }
+        body.dark-mode .glowing-number-light { /* Override for dark mode */
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.7), 0 0 15px rgba(34, 211, 238, 0.5);
+        }
+
+
+        /* Dark Theme Styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1d 50%, #1a1a2e 100%);
+            color: #e0e0e0; /* Light text */
+        }
+        body.dark-mode .accent-text {
+            color: #22d3ee; /* Cyan-400 */
+        }
+        body.dark-mode .accent-border {
+            border-color: #22d3ee; /* Cyan-400 */
+        }
+        body.dark-mode .bg-card-light { /* For main content container in dark mode - NOW DARK GRAY */
+            background-color: #1f2937; /* Tailwind gray-900 */
+            transition: background-color 0.3s ease;
+        }
+        body.dark-mode .border-card-light {
+            border-color: #374151; /* Tailwind gray-700 */
+        }
+        body.dark-mode .text-light-p { /* Paragraph text in dark mode */
+            color: #d1d5db; /* Tailwind gray-300 */
+        }
+        body.dark-mode .text-light-strong { /* Strong text in dark mode */
+            color: #e5e7eb; /* Tailwind gray-200 */
+        }
+        body.dark-mode .text-light-fade { /* Footer text in dark mode */
+            color: #9ca3af; /* Tailwind gray-400 */
+        }
+        body.dark-mode .nav-link-light-hover:hover {
+            color: #22d3ee; /* Cyan-400 */
+            text-shadow: 0 0 5px #22d3ee, 0 0 10px #22d3ee;
+            transform: scale(1.05);
+        }
+        body.dark-mode .image-border-light {
+            border-color: #4b5563; /* Tailwind gray-600 */
+        }
+
+        /* Moving light effect ONLY for dark mode fill */
+        body.dark-mode .chart-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); /* Subtle white shine */
+            animation: moveLight 3s infinite linear;
+        }
+
+        /* Custom scrollbar for aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* Light track */
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: #2a2a3e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2563eb; /* Blue thumb */
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: #22d3ee; /* Cyan-400 thumb */
+            box-shadow: 0 0 5px rgba(34, 211, 238, 0.5);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1d4ed8; /* Darker blue */
+        }
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4; /* Darker cyan */
+        }
+
+        /* Animations (retained) */
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-section-in {
+            animation: fadeInSlideUp 0.7s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes headerFadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-header-title {
+            animation: headerFadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes taglineFadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-header-tagline {
+            animation: taglineFadeIn 0.8s ease-out forwards 0.2s;
+            opacity: 0;
+        }
+        @keyframes moveLight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Futuristic blur elements opacity adjustment for both themes */
+        .absolute.w-24.h-24,
+        .absolute.w-32.h-32,
+        .absolute.w-16.h-16,
+        .absolute.w-20.h-20 {
+            transition: opacity 0.3s ease;
+        }
+        .light-mode-blur {
+            opacity: 0.1; /* Reduced opacity for light background */
+        }
+        .dark-mode-blur {
+            opacity: 0.2; /* Higher opacity for dark background */
+        }
+        .dark-mode-blur-alt {
+             opacity: 0.15; /* slightly less opacity for other dark blur */
+        }
+
+        /* Styles for the animated numbers */
+        .animated-stat-number {
+            opacity: 0; /* Start invisible */
+            transition: opacity 0.5s ease-out; /* Fade in smoothly */
+        }
+        .animated-stat-number.is-visible {
+            opacity: 1; /* Become visible */
+        }
+
+        /* Modal for image enlargement */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            padding-top: 60px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            animation: fadeIn 0.3s forwards;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px; /* Increased max-width for better display */
+            animation: zoomIn 0.3s forwards;
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <!-- Futuristic elements for visual flair -->
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <!-- Updated blur element gradients -->
+        <div id="blur1" class="absolute w-24 h-24 bg-gradient-to-br from-blue-500 to-sky-400 rounded-full blur-xl -top-8 -left-8 light-mode-blur"></div>
+        <div id="blur2" class="absolute w-32 h-32 bg-gradient-to-tl from-purple-500 to-pink-400 rounded-full blur-xl -bottom-16 -right-16 light-mode-blur"></div>
+        <div id="blur3" class="absolute w-16 h-16 bg-gradient-to-tr from-yellow-400 to-red-500 rounded-full blur-xl top-1/4 right-1/4 animate-pulse light-mode-blur"></div>
+        <div id="blur4" class="absolute w-20 h-20 bg-gradient-to-bl from-sky-400 to-cyan-500 rounded-full blur-xl bottom-1/3 left-1/4 animate-pulse delay-100 light-mode-blur"></div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="relative z-10 bg-card-light rounded-lg shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12
+                max-w-4xl w-full flex flex-col gap-8 border-2 accent-border mb-8">
+
+        <!-- Dark Mode Toggle Button -->
+        <button id="themeToggle"
+                class="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700
+                       text-gray-700 dark:text-gray-200 shadow-md hover:scale-105 transition-transform duration-200">
+            <i class="fas fa-moon dark-icon"></i>
+            <i class="fas fa-sun light-icon hidden"></i>
+        </button>
+
+        <!-- Header -->
+        <header class="text-center pb-6 border-b border-card-light">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 accent-text animate-header-title italic">Tekathon 4.0</h1>
+            <p class="text-xl sm:text-2xl font-light text-light-p italic mb-4 animate-header-tagline">Where Ideas Meet Innovation</p>
+            <nav class="flex justify-center space-x-4 sm:space-x-8">
+                <a href="index.html" class="text-light-p hover:text-blue-600 font-medium transition-colors duration-200 nav-link-light-hover">Home</a>
+                <a href="sponsor.html" class="text-light-p hover:text-blue-600 font-medium transition-colors duration-200 nav-link-light-hover">Why Sponsor</a>
+                <a href="contact.html" class="text-light-p hover:text-blue-600 font-medium transition-colors duration-200 nav-link-light-hover">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Highlights & Images Section -->
+        <section id="highlights-and-images-section" class="mb-6 animate-section-in" style="animation-delay: 0.3s;">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 accent-text text-center">Last Year’s Highlights (Tekathon 3.0)</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Statistic Card: Registrations -->
+                <div class="flex flex-col items-center sm:items-start bg-black text-white rounded-xl shadow-sm p-6 dark:bg-gray-800 dark:border dark:border-gray-700">
+                    <i class="fas fa-user-plus text-3xl accent-text mb-2"></i>
+                    <p class="text-xs text-white dark:text-gray-400 uppercase tracking-wider">Registrations</p>
+                    <p class="text-3xl sm:text-4xl font-bold glowing-number-light mt-1">
+                        <span class="animated-stat-number" data-target="20000">0</span><span class="text-lg">+</span>
+                    </p>
+                    <div class="chart-bar-base w-full mt-2">
+                        <div class="chart-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- Statistic Card: Final Participation -->
+                <div class="flex flex-col items-center sm:items-start bg-black text-white rounded-xl shadow-sm p-6 dark:bg-gray-800 dark:border dark:border-gray-700">
+                    <i class="fas fa-users text-3xl accent-text mb-2"></i>
+                    <p class="text-xs text-white dark:text-gray-400 uppercase tracking-wider">Final Participation</p>
+                    <p class="text-3xl sm:text-4xl font-bold glowing-number-light mt-1">
+                        <span class="animated-stat-number" data-target="600">0</span><span class="text-lg">+</span>
+                    </p>
+                    <p class="text-base text-white dark:text-gray-300 font-medium mt-1">Teams</p>
+                    <div class="chart-bar-base w-full mt-2">
+                        <div class="chart-bar-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <!-- Image 1 -->
+                <div class="rounded-lg overflow-hidden shadow-lg border image-border-light bg-gray-50 dark:bg-gray-800 p-2 cursor-pointer img-thumbnail">
+                    <img src="1.jpg" alt="Tekathon Previous Year Image 1" class="w-full h-40 object-cover rounded-md">
+                </div>
+
+                <!-- Statistic Card: Footfall -->
+                <div class="flex flex-col items-center sm:items-start bg-black text-white rounded-xl shadow-sm p-6 dark:bg-gray-800 dark:border dark:border-gray-700">
+                    <i class="fas fa-shoe-prints text-3xl accent-text mb-2"></i>
+                    <p class="text-xs text-white dark:text-gray-400 uppercase tracking-wider">Footfall</p>
+                    <p class="text-3xl sm:text-4xl font-bold glowing-number-light mt-1">
+                        <span class="animated-stat-number" data-target="8000">0</span><span class="text-lg">+</span>
+                    </p>
+                    <p class="text-base text-white dark:text-gray-300 font-medium mt-1">Attendees</p>
+                    <div class="chart-bar-base w-full mt-2">
+                        <div class="chart-bar-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <!-- Statistic Card: Media Reach -->
+                <div class="flex flex-col items-center sm:items-start bg-black text-white rounded-xl shadow-sm p-6 dark:bg-gray-800 dark:border dark:border-gray-700">
+                    <i class="fas fa-globe text-3xl accent-text mb-2"></i>
+                    <p class="text-xs text-white dark:text-gray-400 uppercase tracking-wider">Media Reach</p>
+                    <p class="text-3xl sm:text-4xl font-bold glowing-number-light mt-1">
+                        <span class="animated-stat-number" data-target="1000000">0</span><span class="text-lg">+</span>
+                    </p>
+                    <p class="text-base text-white dark:text-gray-300 font-medium mt-1">Impressions</p>
+                    <div class="chart-bar-base w-full mt-2">
+                        <div class="chart-bar-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="rounded-lg overflow-hidden shadow-lg border image-border-light bg-gray-50 dark:bg-gray-800 p-2 cursor-pointer img-thumbnail">
+                    <img src="4.jpg" alt="Tekathon Previous Year Image 2" class="w-full h-40 object-cover rounded-md">
+                </div>
+
+                <!-- Statistic Card: Collaborations -->
+                <div class="flex flex-col items-center sm:items-start bg-black text-white rounded-xl shadow-sm p-6 dark:bg-gray-800 dark:border dark:border-gray-700 lg:col-span-2">
+                    <i class="fas fa-handshake text-3xl accent-text mb-2"></i>
+                    <p class="text-xs text-white dark:text-gray-400 uppercase tracking-wider">Collaborations</p>
+                    <p class="text-base sm:text-lg text-white dark:text-gray-300 font-medium mt-2 text-center sm:text-left leading-relaxed">
+                        Supported by multiple industry mentors and university departments, fostering a rich learning environment.
+                    </p>
+                    <div class="chart-bar-base w-full mt-2">
+                        <div class="chart-bar-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="rounded-lg overflow-hidden shadow-lg border image-border-light bg-gray-50 dark:bg-gray-800 p-2 cursor-pointer img-thumbnail">
+                    <img src="3.jpg" alt="Tekathon Previous Year Image 3" class="w-full h-40 object-cover rounded-md">
+                </div>
+            </div>
+            <p class="text-sm text-light-fade text-center mt-4 italic">
+                Note: Placeholder images are used for demonstration. Remember to replace them with your actual event images.
+            </p>
+        </section>
+
+
+        <!-- Why Sponsor Tekathon 4.0? Section -->
+        <section class="mb-6 animate-section-in" style="animation-delay: 0.6s;">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 accent-text text-center">Why Sponsor Tekathon 4.0?</h2>
+
+            <ul class="space-y-6 text-base sm:text-lg text-light-p list-none pl-0">
+                <li class="flex items-start">
+                    <i class="fas fa-bullseye accent-text text-xl mr-3 mt-1"></i>
+                    <span><strong class="text-light-strong">Direct visibility</strong> to 20,000+ tech-savvy students & innovators</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-star accent-text text-xl mr-3 mt-1"></i>
+                    <span><strong class="text-light-strong">Exclusive brand positioning</strong> among future entrepreneurs & engineers</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-share-alt accent-text text-xl mr-3 mt-1"></i>
+                    <span><strong class="text-light-strong">Media promotions</strong> through CU’s massive social network (50K+ students)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-lightbulb accent-text text-xl mr-3 mt-1"></i>
+                    <span><strong class="text-light-strong">Opportunity to collaborate</strong> with young innovators on live projects</span>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- New Section: Custom Sponsorship -->
+        <section class="mb-6 animate-section-in" style="animation-delay: 1.2s;">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 accent-text text-center">Tailored Partnership Opportunities</h2>
+            <div class="bg-black text-white rounded-xl shadow-sm p-6 text-center dark:bg-gray-800 dark:border dark:border-gray-700"> <!-- Removed text-light-p from here -->
+                <p class="text-lg mb-4 text-white dark:text-gray-300">
+                    While we offer structured sponsorship packages, we are eager to create a custom partnership that
+                    aligns perfectly with your brand's unique objectives and marketing strategies.
+                </p>
+                <p class="font-medium text-white dark:text-gray-300">
+                    Connect with us to design a bespoke collaboration!
+                </p>
+                <button onclick="window.location.href='https://forms.gle/QHvbBCTnvREUme7DA'"
+                        class="mt-6 inline-flex items-center justify-center px-6 py-3 border border-transparent
+                               text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700
+                               focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                               dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-500
+                               transition-all duration-300 ease-in-out animated-button-glow">
+                    <i class="fas fa-hand-point-right mr-2"></i> Discuss Custom Packages
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-6 border-b border-card-light text-light-fade text-sm animate-section-in" style="animation-delay: 1.5s;">
+            <p>© 2025 Tekathon 4.0 | Chandigarh University</p>
+        </footer>
+    </div>
+
+    <!-- The Modal for Enlarged Images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const darkIcon = document.querySelector('.dark-icon');
+            const lightIcon = document.querySelector('.light-icon');
+            const blurElements = [
+                document.getElementById('blur1'),
+                document.getElementById('blur2'),
+                document.getElementById('blur3'),
+                document.getElementById('blur4')
+            ];
+
+            // Function to set theme
+            const setTheme = (isDarkMode) => {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                    // Adjust blur opacities for dark mode
+                    blurElements.forEach((el, index) => {
+                        if (index === 2 || index === 3) { // animated blurs
+                            el.classList.remove('light-mode-blur');
+                            el.classList.add('dark-mode-blur-alt');
+                        } else {
+                             el.classList.remove('light-mode-blur');
+                             el.classList.add('dark-mode-blur');
+                        }
+                    });
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                    // Adjust blur opacities for light mode
+                    blurElements.forEach((el, index) => {
+                         if (index === 2 || index === 3) { // animated blurs
+                             el.classList.remove('dark-mode-blur-alt');
+                             el.classList.add('light-mode-blur');
+                         } else {
+                             el.classList.remove('dark-mode-blur');
+                             el.classList.add('light-mode-blur');
+                         }
+                    });
+                    localStorage.setItem('theme', 'light');
+                }
+            };
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                setTheme(true);
+            } else {
+                setTheme(false); // Default to light mode
+            }
+
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+            // --- JavaScript for Counting Animation ---
+            const animateNumber = (element) => {
+                const target = parseInt(element.getAttribute('data-target'));
+                let current = 0;
+                const duration = 1500; // Animation duration in milliseconds
+                const frameRate = 1000 / 60; // Approximate frames per second
+                const increment = target / (duration / frameRate);
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        element.textContent = Math.min(Math.floor(current), target).toLocaleString(); // Format with commas
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target.toLocaleString(); // Ensure final value is exact
+                    }
+                };
+
+                element.classList.add('is-visible'); // Trigger CSS fade-in
+                updateCounter();
+            };
+
+            const highlightsAndImagesSection = document.getElementById('highlights-and-images-section');
+            if (highlightsAndImagesSection) {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const numbersInSection = entry.target.querySelectorAll('.animated-stat-number');
+                            numbersInSection.forEach(num => animateNumber(num));
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(highlightsAndImagesSection);
+            }
+            // --- End JavaScript for Counting Animation ---
+
+            // --- JavaScript for Image Modal ---
+            const modal = document.getElementById("imageModal");
+            const modalImage = document.getElementById("modalImage");
+            const closeBtn = document.getElementsByClassName("close")[0];
+            const imgThumbnails = document.querySelectorAll('.img-thumbnail img');
+
+            imgThumbnails.forEach(img => {
+                img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImage.src = this.src;
+                }
+            });
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            // --- End JavaScript for Image Modal ---
+        });
+    </script>
+</body>
+</html>
